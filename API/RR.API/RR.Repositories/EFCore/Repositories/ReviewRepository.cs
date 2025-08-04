@@ -1,4 +1,5 @@
-﻿using RR.API.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using RR.API.Models;
 using RR.Repositories.Conctrats.Repositories;
 using System;
 using System.Collections.Generic;
@@ -14,34 +15,16 @@ namespace RR.Repositories.EFCore.Repositories
         {
         }
 
-        public void CreateReview(Review review)
+        public async Task<double> GetReviewRateByRestourantAsync(Guid restourantId, bool trackChanges)
         {
-            throw new NotImplementedException();
+                     return await FindByCondition(r => r.RestaurantId == restourantId, trackChanges)
+                                 .AverageAsync(r => r.Rating);
         }
 
-        public void DeleteReview(Review review)
-        {
-            throw new NotImplementedException();
-        }
+        public Task<List<Review>> GetReviewsByRestourant(Guid restourantId, bool trackChanges)=>
+                                  FindByCondition(r => r.RestaurantId == restourantId, trackChanges)
+                                 .OrderBy(r => r.CreatedAt)
+                                 .ToListAsync();
 
-        public Task<List<Review>> GetAllReviewsAsync(bool trackChanges)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Review> GetReviewByIdAsync(Guid reviewId, bool trackChanges)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<List<Review>> GetReviewsByRestourant(Guid restourantId, bool trackChanges)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void UpdateReview(Review review)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

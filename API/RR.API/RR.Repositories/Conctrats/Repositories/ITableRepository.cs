@@ -10,11 +10,9 @@ namespace RR.Repositories.Conctrats.Repositories
 {
     public interface ITableRepository : IRepositoryBase<Table>
     {
-        Task<List<Table>> GetAllTablesAsync(bool trackChanges);
         Task<List<Table>> GetTablesByRestourant(Guid restourantId,bool trackChanges);
-        void CreateTable(Table table);
-        void UpdateTable(Table table);
-        void DeleteTable(Table table);
+
+        Task<Table> GetTableByIdAsync(Guid tableId, bool trackChanges);
 
     }
 }

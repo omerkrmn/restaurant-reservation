@@ -9,11 +9,7 @@ namespace RR.Repositories.Conctrats.Repositories
 {
     public interface IPaymentRepository : IRepositoryBase<Payment>
     {
-        Task<List<Payment>> GetAllPaymentsAsync(bool trackChanges);
         Task<List<Payment>> GetPaymentsByRestourant(Guid restourantId, bool trackChanges);
         Task<Payment> GetPaymentByIdAsync(Guid paymentId, bool trackChanges);
-        void CreatePayment(Payment payment);
-        void UpdatePayment(Payment payment);
-        void DeletePayment(Payment payment);
     }
 }

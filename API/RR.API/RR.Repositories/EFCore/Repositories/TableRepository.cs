@@ -1,4 +1,5 @@
-﻿using RR.API.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using RR.API.Models;
 using RR.Repositories.Conctrats;
 using RR.Repositories.Conctrats.Repositories;
 using System;
@@ -15,30 +16,17 @@ namespace RR.Repositories.EFCore.Repositories
         public TableRepository(RestourantReservationDBContext context) : base(context)
         {
         }
-
-        public void CreateTable(Table table)
+        public async Task<Table> GetTableByIdAsync(Guid tableId, bool trackChanges)
         {
-            throw new NotImplementedException();
+            return await FindByCondition(t => t.Id == tableId, trackChanges)
+                        .SingleOrDefaultAsync();
         }
 
-        public void DeleteTable(Table table)
+        public async Task<List<Table>> GetTablesByRestourant(Guid restourantId, bool trackChanges)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task<List<Table>> GetAllTablesAsync(bool trackChanges)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<List<Table>> GetTablesByRestourant(Guid restourantId, bool trackChanges)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void UpdateTable(Table table)
-        {
-            throw new NotImplementedException();
+            return await FindByCondition(t => t.RestaurantId == restourantId, trackChanges)
+                        .OrderBy(t => t.TableNumber)
+                        .ToListAsync();
         }
     }
 }

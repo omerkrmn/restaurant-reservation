@@ -1,4 +1,5 @@
-﻿using RR.API.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using RR.API.Models;
 using RR.Repositories.Conctrats.Repositories;
 using System;
 using System.Collections.Generic;
@@ -14,34 +15,17 @@ namespace RR.Repositories.EFCore.Repositories
         {
         }
 
-        public void CreateMenuItem(MenuItem menuItem)
+        public async Task<MenuItem> GetMenuItemByIdAsync(Guid menuItemId, bool trackChanges)
         {
-            throw new NotImplementedException();
+            return await FindByCondition(m => m.Id == menuItemId, trackChanges)
+                        .SingleOrDefaultAsync();
         }
 
-        public void DeleteMenuItem(MenuItem menuItem)
+        public async Task<List<MenuItem>> GetMenuItemsByRestaurantIdAsync(Guid restaurantId, bool trackChanges)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task<List<MenuItem>> GetAllMenuItemsAsync(bool trackChanges)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<MenuItem> GetMenuItemByIdAsync(Guid menuItemId, bool trackChanges)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<List<MenuItem>> GetMenuItemsByRestaurantIdAsync(Guid restaurantId, bool trackChanges)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void UpdateMenuItem(MenuItem menuItem)
-        {
-            throw new NotImplementedException();
+            return await FindByCondition(m => m.RestaurantId == restaurantId, trackChanges)
+                        .OrderBy(m => m.Name)
+                        .ToListAsync();
         }
     }
 }

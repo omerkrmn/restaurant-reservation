@@ -9,11 +9,8 @@ namespace RR.Repositories.Conctrats.Repositories
 {
     public interface IRestaurantRepository : IRepositoryBase<Restaurant>
     {
-        Task<List<Restaurant>> GetAllRestaurantsAsync(bool trackChanges);
         Task<Restaurant> GetRestaurantByIdAsync(Guid restaurantId, bool trackChanges);
         Task<List<Restaurant>> GetRestaurantsByCityAsync(string city, bool trackChanges);
-        void CreateRestaurant(Restaurant restaurant);
-        void UpdateRestaurant(Restaurant restaurant);
-        void DeleteRestaurant(Restaurant restaurant);
+
     }
 }

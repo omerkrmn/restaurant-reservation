@@ -1,4 +1,5 @@
-﻿using RR.API.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using RR.API.Models;
 using RR.Repositories.Conctrats.Repositories;
 using System;
 using System.Collections.Generic;
@@ -14,34 +15,17 @@ namespace RR.Repositories.EFCore.Repositories
         {
         }
 
-        public void CreateNotification(Notification notification)
+        public async Task<Notification> GetNotificationByIdAsync(Guid notificationId, bool trackChanges)
         {
-            throw new NotImplementedException();
+            return await FindByCondition(n => n.Id == notificationId, trackChanges)
+                        .SingleOrDefaultAsync();
         }
 
-        public void DeleteNotification(Notification notification)
+        public async Task<List<Notification>> GetNotificationsByUserIdAsync(Guid userId, bool trackChanges)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task<List<Notification>> GetAllNotificationsAsync(bool trackChanges)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Notification> GetNotificationByIdAsync(Guid notificationId, bool trackChanges)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<List<Notification>> GetNotificationsByUserIdAsync(Guid userId, bool trackChanges)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void UpdateNotification(Notification notification)
-        {
-            throw new NotImplementedException();
+            return await FindByCondition(n => n.UserId == userId, trackChanges)
+                        .OrderByDescending(n => n.CreatedAt)
+                        .ToListAsync();
         }
     }
 }

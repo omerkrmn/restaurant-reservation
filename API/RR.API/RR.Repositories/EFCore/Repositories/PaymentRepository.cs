@@ -1,4 +1,5 @@
-﻿using RR.API.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using RR.API.Models;
 using RR.Repositories.Conctrats.Repositories;
 using System;
 using System.Collections.Generic;
@@ -14,34 +15,17 @@ namespace RR.Repositories.EFCore.Repositories
         {
         }
 
-        public void CreatePayment(Payment payment)
+        public async Task<Payment> GetPaymentByIdAsync(Guid paymentId, bool trackChanges)
         {
-            throw new NotImplementedException();
+            return await FindByCondition(p => p.Id == paymentId, trackChanges)
+                        .SingleOrDefaultAsync();
         }
 
-        public void DeletePayment(Payment payment)
+        public async Task<List<Payment>> GetPaymentsByRestourant(Guid restourantId, bool trackChanges)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task<List<Payment>> GetAllPaymentsAsync(bool trackChanges)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Payment> GetPaymentByIdAsync(Guid paymentId, bool trackChanges)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<List<Payment>> GetPaymentsByRestourant(Guid restourantId, bool trackChanges)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void UpdatePayment(Payment payment)
-        {
-            throw new NotImplementedException();
+            return await FindByCondition(p => p.ReservationId == restourantId, trackChanges)
+                        .OrderBy(p => p.CreatedAt)
+                        .ToListAsync();
         }
     }
 }
