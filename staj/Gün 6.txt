@@ -1,0 +1,22 @@
+Bu gün stajda Kullanacağım mimarinin temellerini attım. N-tier Architecture mimarisi için
+	4 Katman ekledim bunları Projenin solutionuna ClassLibrary olarak ekledim.
+		RR.Entities		Model,CustomException,Dto gibi varlıklarım bu katmanda
+		RR.Repositories		Data Acces Layer katmanı
+		RR.Presentation		Controllerlarımın bulunduğu katman
+		RR.Services		BLL katmanı
+		RR.Api			.NET WEB API Projesi
+		
+veritabanı için yazdığım modelleri Entities katmanına ekledim.
+DBContext'i Repositories katmanına ekledim.
+Presentation katmanının sistem tarafından görülebilmesi için AssemblyReferance adında bir class oluşturup Program.cs te UseController() a o sınıfı parametre olarak verdim.
+Presentation katmanını yazmaya başladım. bu katmanın görevi veritabanına veri yazma/okuma başka herhangi bir işlevi yok. ayrıca bu katmana gelen veri kesinlikle eksiksiz olmalı yani hatalı veri gelmemeli.
+bu katman da bulunan kodlar görevi haricinde herhangi bir iş yapmamalı örnek olarak bir restaurant eklenek daha önce öyle bir restaurant kaydı yapılmış bunun kontrolü service katmanında olmalı, Repositories katmanında değil.
+
+Projede Generic Repository Pattern kullanacağım için öncelikle onu yazdım. IRepositoryBase adında bir interface oluşturdum. 
+Bu interface benim her repom için ortak olan CRUD fonsksiyonlarını barındıracak. 
+bu sayede 9 adet repom için tek tek create,delete,update, getOne,GetAll gibi fonksiyonlar yazmama gerek kalmayacak bu sınıfı onlara extend ederek generic olarak tüm özellikleri aktaracağım.
+Repolarım için ise sadece spesifik Fonksiyonlar olacak.
+
+Generic Repository pattern için yazdığım ek sayfa 6.
+
+Bu gün genel olarak bu Yapıyı tasarlama,ve sisteme ekleme ile geçti.

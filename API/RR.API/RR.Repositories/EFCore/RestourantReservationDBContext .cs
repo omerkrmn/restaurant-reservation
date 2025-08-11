@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using RR.API.Models;
 using System;
 using System.Collections.Generic;
@@ -9,14 +11,14 @@ using System.Threading.Tasks;
 
 namespace RR.Repositories.EFCore
 {
-    public class RestourantReservationDBContext : DbContext
+    public class RestourantReservationDBContext : IdentityDbContext<User, IdentityRole<Guid>, Guid>
     {
         public RestourantReservationDBContext(DbContextOptions<RestourantReservationDBContext> options) : base(options)
-        {
-        }
+        { }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(RestourantReservationDBContext).Assembly);
 
             // Payment - Reservation 1:1 ilişki
             modelBuilder.Entity<Payment>()

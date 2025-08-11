@@ -1,0 +1,35 @@
+Bugün kalan manager’ların metodlarını da yazdım.
+NotificationsManager, PaymentsManager, RestaurantsManager, ReviewsManager ve TablesManager sınıflarını tamamladım.
+Böylece tüm modeller için service layer tarafında CRUD ve iş mantığı metodları eksiksiz olarak hazır hale geldi.
+
+Ayrıca projeye ExceptionHandlerMiddleware ekledim.
+Bu sayede uygulama çalışırken herhangi bir exception oluştuğunda, tanımladığım o exception tipine karşılık gelen status code ile standart bir HTTP yanıtı dönebiliyorum.
+Böylelikle hata yönetimi merkezi hale geldi, gereksiz try-catch tekrarları ortadan kalktı ve API’nin hata yanıtları tutarlı bir formata kavuştu.
+
+
+Middleware
+
+app.UseExceptionHandler(appError =>
+{
+    appError.Run(async context =>
+    {
+        context.Response.ContentType = "application/json";
+        var contextFeature = context.Features.Get<IExceptionHandlerFeature>();
+        if (contextFeature is not null)
+        {
+            context.Response.StatusCode = contextFeature.Error switch
+            {
+                ConflictException => StatusCodes.Status409Conflict,
+                NotFoundException => StatusCodes.Status404NotFound,
+                _ => StatusCodes.Status500InternalServerError     			
+            };
+            await context.Response.WriteAsync(new ErrorDetails()
+            {
+                StatusCode = context.Response.StatusCode,
+                Message = contextFeature.Error.Message
+            }.ToString());
+        }
+    });
+});
+
+Bugün itibarıyla service layer'ı bitrdim. Yarın ise Auth işlemlerini yapacağım. 

@@ -1,0 +1,22 @@
+Stajımın ikinci gününde, bir önceki gün verilen bilgiler doğrultusunda nasıl bir yol izlemek istediğime karar verdim. 
+Şirketin geliştirdiği ürünleri ve bu ürünleri nasıl hayata geçirdiklerini merak ettiğim için, geliştirdikleri framework’ü görmek istediğimi söyledim. 
+Bunu proje amaçlı değil, tamamen merakımdan dolayı talep ettiğimi söyledim.
+
+Akif Bey, bu talebimi olumlu karşıladı ve şirketin geliştirdiği framework bilgisayarıma yüklendi. 
+Başlangıçta, bunun klasik bir ORM (Object-Relational Mapping) yapısı olacağını düşünmüştüm. 
+Ancak framework, beklediğimden çok daha kapsamlıydı.
+
+Şirket, kendilerine özel bir yazılım geliştirme ortamı (IDE) oluşturmuş. 
+Visual Studio benzeri bu IDE'nin kendi Toolbox'ı bulunuyor ve burada yer alan nesneler doğrudan veritabanı ile bağlantılı şekilde çalışıyor. 
+Uygulamanın kendi kod editörü, SQL arayüzü ve olay (event) sistemi mevcut. 
+Ayrıca, .NET içerisinde yer almayan birçok özel event de framework'e entegre edilmiş. 
+Yapı genel olarak WinForms mantığına benziyor; ancak arayüz ve işleyiş açısından çok daha sade bir şekilde tasarlanmış. 
+Her event için ayrı kod yazma ekranları bulunuyor ve yazılan kodlar framework aracılığıyla .NET’in anlayabileceği formata dönüştürülüyor.
+
+Örneğin, AFTERSAVERECORD adlı event, veritabanına bir kayıt eklendikten sonra otomatik olarak tetikleniyor. 
+Bu ve benzeri onlarca özel event sistemde tanımlanmış durumda.
+
+Akif Bey'in yaklaşık 1 saat 30 dakikalık eğitimi sonrasında uygulamayı kurcalamaya başladım.
+
+Günün geri kalanında ise framework üzerinde küçük deneme projeleri yaparak hem yapıyı hem de kullanım mantığını anlamaya çalıştım.
+Bugünüm, tamamen bu yazılımı keşfetmek ve öğrenmeye başlamakla geçti.

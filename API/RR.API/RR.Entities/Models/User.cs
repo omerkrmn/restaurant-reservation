@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿
+using Microsoft.AspNetCore.Identity;
 
 namespace RR.API.Models
 {
@@ -8,5 +9,8 @@ namespace RR.API.Models
         public  DateTime CreatedAt { get; set; }
         public ICollection<Reservation> Reservations { get; set; }
         public ICollection<Review> Reviews { get; set; }
+
+        public String? RefreshToken { get; set; }
+        public DateTime RefreshTokenExpiryTime { get; set; }
     }
 }

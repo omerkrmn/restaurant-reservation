@@ -1,0 +1,28 @@
+Bu gün Her repomun için interfaceleri yazdım ve onları doldurdum.
+örneğin IMenuCategoryRepository interface'i IRepositoryBase<MenuCategory> sınıfından implement alıyor.
+MenuCategoryRepository sınfım ise  RepositoryBase<MenuCategory> i extend IMenuCategoryRepository i implement ediyor.
+bu sayede MenuCategoryRepository içerisine sadece o sınıfa spesifik kodlar oluyor. 
+	örnek olarak 
+		public async Task<List<MenuCategory>> GetMenuCategoriesByRestaurantIdAsync(Guid restaurantId, bool trackChanges)
+		
+Yüzeysel olarak tüm Modellerim için aynı işi tekrar yaptım. 
+
+RepositoryManager(Unit of Work) adında bir  sınıf oluşturdum ve ve repolarımın Referanslarını içerisinde tuttum.
+Burada referans verirken LazyLoading yönetmini kullandım.
+	LazyLoading ile Restaurant sınıfımı kullanmak istediğimde onunla ilişkili olan Menu sınıfı da çağırılmıyor bu sayede performans kazanıyorum.
+	ayrıca LazyLoading yaptığım için IoC kaydı eklememe gerek kalmıyor.
+
+	private readonly Lazy<ITableRepository> _tableRepository;
+	public RepositoryManager(RestourantReservationDBContext context)
+ 	{
+ 	    _context = context;
+    	    _tableRepository = new Lazy<ITableRepository>(() => new TableRepository(_context));
+    	    ..
+    	    ..
+      }
+      
+bu işkemi bitirdikten sonra Repository Manager sınıfının IoC kaydını yaptım.
+	service.AddScoped<IRepositoryManager, RepositoryManager>();
+	artık IRepositoryManager ı herhangi bir yerde parametre olarak istediğimde .net dependency injection sayesinde bana her http sorgusu için 1 adet RepositoryManager sınıfı oluşturacak.
+
+Böylece 7. gününde sonuna geldim.

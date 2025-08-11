@@ -1,0 +1,60 @@
+﻿@page "/gues/login"
+@using RR.Entities.DTOs
+@inject HttpClient Http
+
+<h3>Login</h3>
+
+<EditForm Model="@loginModel" OnValidSubmit="@LoginAsync">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="mb-3">
+        <label class="form-label">Kullanıcı Adı</label>
+        <InputText class="form-control" @bind-Value="loginModel.UserName" />
+        <ValidationMessage For="() => loginModel.UserName" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Password</label>
+        <InputText class="form-control" type="password" @bind-Value="loginModel.Password" />
+        <ValidationMessage For="() => loginModel.Password" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</EditForm>
+
+
+@if (!string.IsNullOrWhiteSpace(message))
+{
+    <div class="alert alert-info mt-3">@message</div>
+}
+
+@code {
+    private UserForAuthenticationDto loginModel = new();  
+
+    private string message;
+
+    public async Task LoginAsync()
+    {
+        try
+        {
+            var resp = await Http.PostAsJsonAsync("https://localhost:7129/api/Authentication/login", loginModel);
+
+            if (resp.IsSuccessStatusCode)
+            {
+                var raw = await resp.Content.ReadAsStringAsync();
+                message = $"Giriş başarılı. Yanıt: {raw}";
+
+            }
+            else
+            {
+                var err = await resp.Content.ReadAsStringAsync();
+                message = $"Giriş başarısız: {(int)resp.StatusCode} - {err}";
+            }
+        }
+        catch (Exception ex)
+        {
+            message = $"Hata: {ex.Message}";
+        }
+    }
+}

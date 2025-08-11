@@ -1,0 +1,22 @@
+Stajımın ilk günü, şirket içerisindeki geliştirici ekip ile tanıştık.
+Tanışma sırasında, şirketin genel olarak ne üzerine çalıştığı ve hangi teknolojileri kullandığı hakkında bilgilendirildik.
+Şirket, kendi geliştirdikleri bir .NET tabanlı Application Framework üzerinden projelerini yürütüyor. 
+Bu framework’ün, geliştirme sürecinde hız ve verimlilik sağladığı belirtildi. 
+Özellikle framework içerisinde yer alan nesnelerin doğrudan veritabanı ile entegre çalıştığı ve bu sayede veri işlemlerinin oldukça pratik bir şekilde gerçekleştirilebildiği anlatıldı.
+ 
+Tanışma sürecinin ardından, staj süresince bize rehberlik edecek olan Akif Bey ile bir görüşme gerçekleştirdik. 
+Bu görüşmede, staj sürecinde nasıl bir yol izleyeceğimiz hakkında konuştuk. 
+Hem kendi beklentilerimi hem de üniversite hocalarımızın stajdan neler beklediğini kendisine aktardım.
+
+Akif Bey, staj boyunca gerçekleştireceğimiz proje için bize üç farklı seçenek sundu:
+
+	- Tamamen kendi belirleyeceğimiz bir proje
+	- Şirketin bize önereceği bir proje,
+	- Şirketin geliştirdiği Application Framework’ü kullanarak bir proje geliştirme.
+
+Bu seçeneklerden birini tercih etmemizi ve sürecin bu doğrultuda ilerleyeceğini söyledi.
+Ayrıca proje süresince bizlere nasıl destek olacaklarından da detaylı bir şekilde bahsetti.
+Özellikle projenin her aşamasında düzenli güncellemeler yaparak ilerleyeceklerini ve tüm proje kapsamını bir anda vermek yerine, adım adım ilerlemeyi tercih ettiklerini ifade etti.
+Böylece hem daha kontrollü hem de daha öğretici bir süreç olacağını belirtti.
+
+Bu şekilde stajımın ilk günü, tanışma, bilgilendirme ve planlama süreciyle tamamlandı.

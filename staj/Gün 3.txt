@@ -1,0 +1,23 @@
+Stajımın üçüncü gününde, Kemal Bey ile oldukça güzel ve verimli bir sohbet gerçekleştirdik. 
+Kendisi 16 yıldır LedSoft'ta mühendis olarak görev yapıyor. 
+Bana, şirketin firmalara sunduğu çözümlerden ve hizmetlerden bahsetti. 
+Ayrıca, geliştirdikleri framework’ün avantajlarını da anlattı. 
+Bu framework'ün aynı anda tek bir tuşla masaüstü, mobil ve web ortamına çıktı verebildiğini öğrendim; bu özellik beni oldukça etkiledi.
+
+Sohbetimizin ardından Kemal Bey, bana küçük bir mülakat yaptı. 
+Bazı temel yazılım ve algoritma soruları yöneltti; hepsine doğru cevap verdim. 
+Bunun yanında SQL ile ilgili birkaç soru sordu; örneğin “Cursor nedir?”, “Procedure nedir?” gibi.
+Ayrıca, büyük bir firma için geliştirdikleri ERP yazılımını bana gösterdi. 
+Yaklaşık 1 saatten uzun süren bu sunumda; SQL sorguları, GPS takip sistemi, fatura yönetimi gibi konularda oldukça değerli bilgiler paylaştı.
+
+Yazılım geliştirme ekibi de oldukça ilgiliydi. Gün boyunca sorduğum tüm sorulara yanıt verdiler. 
+Gün içerisinde proje hakkında da konuştuk.Ne üzerine bir proje yapmak istediğim, hangi teknolojilere hâkim olduğum gibi konulara değindik.
+
+Bir süre framework üzerinde çalıştıktan sonra, Akif Bey ile kahve molasında sohbet etme fırsatı buldum. 
+Kendisine, ERP yazılımlarında muhasebe yönetimi modülünün nasıl çalıştığını ve bu konuda nasıl bilgi edinebileceğimi sordum.
+Kısa bir açıklamanın ardından, şirket içinde demo olarak hazırlanan ERP yazılımının giriş bilgilerini benimle paylaştı. 
+Yaklaşık 10 dakikalık kısa bir bilgilendirmeden sonra uygulamayı incelemeye başladım.
+
+Ayrıca, framework’ün Cloud ortamındaki bir versiyonuna ait kullanıcı hesabı da bana verildi. 
+Bu sayede artık geliştirdiğim uygulamaları doğrudan web üzerinden görüntüleyebiliyorum. 
+Günüm genel olarak, demo ERP projesinde yer alan modülleri ve bu modüllerin veritabanı tablolarını incelemekle geçti.

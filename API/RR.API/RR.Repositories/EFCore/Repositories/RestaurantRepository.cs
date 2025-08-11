@@ -23,5 +23,6 @@ namespace RR.Repositories.EFCore.Repositories
                                .OrderBy(r => r.Name)
                                .ToListAsync();
 
+
     }
 }

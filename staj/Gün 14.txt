@@ -1,0 +1,14 @@
+Bugün ekip liderim Kemal Bey, bana birden fazla kişinin aynı anda görüntülü konuşma yapabileceği bir uygulama geliştirme görevi verdi. Daha önce bu alanda çalışmadığım için öncelikle SignalR ve WebRTC teknolojilerini araştırdım.
+Projenin gerçek zamanlı iletişim kısmında SignalR’ı signaling server olarak kullanmaya karar verdim. Böylece kullanıcılar arasında doğrudan medya akışı (peer-to-peer) yapılırken, offer, answer ve ICE candidate gibi WebRTC mesajlarının iletimi SignalR üzerinden sağlanacaktı.
+
+Teknik olarak:
+
+CallHub adında bir SignalR Hub sınıfı yazdım.
+
+Çoklu kullanıcı desteği için, odalar (rooms) mantığına uygun olacak şekilde bağlantıları yönetebilecek metodlar (JoinRoom, SendOffer, SendAnswer, SendIceCandidate) ekledim.
+
+CORS ayarlarını genişleterek farklı origin’lerden gelen isteklerin kabul edilmesini sağladım.
+
+API tarafını tamamlayıp Azure App Service üzerinde yayına aldım.
+
+Gün sonunda backend tarafı, birden fazla katılımcının bağlantı kurmasına uygun şekilde çalışır duruma geldi.

@@ -1,0 +1,35 @@
+Stajımın dördüncü gününde, bana verilen ERP yazılımını daha detaylı bir şekilde inceledim. 
+Daha önceki stajımda otomasyon sistemlerinin arka planında çalışmış olsam da, bu kadar kapsamlı bir projeyi detaylı olarak incelemek oldukça keyifliydi.
+
+Ayrıca şirketin geliştirdiği framework ile küçük çaplı bir uygulama geliştirdim. 
+Yaklaşık iki saatlik bir çalışmanın sonunda, basit bir Not Defteri uygulaması oluşturdum. 
+Uygulamada; kullanıcı oluşturma, not ekleme, silme, güncelleme ve filtreleme gibi temel işlevleri gerçekleştirdim.
+
+Framework içerisinde oldukça fazla sayıda event (olay) bulunsa da, bu süreçte en çok kullandığım event'ler şunlardı:
+
+	- Main: Fonksiyonları tanımlayabildiğimiz ve bu fonksiyonları diğer event’lerde çağırabildiğimiz genel bir yapı.
+	- Init: Uygulama çalıştırıldığında ilk tetiklenen event’tir. Başlangıç işlemleri burada yapılır.
+	- EDITOR_ONCHANGE: Bir editörde değişiklik yapıldığında tetiklenen event’tir.
+	- Record ile ilgili event’ler: Kayıt eklenmeden önce ya da eklendikten sonra tetiklenen BEFORESAVERECORD, AFTERSAVERECORD gibi event'leri aktif şekilde kullandım.
+
+Bu uygulama sayesinde framework’ün event yapısını daha iyi anlama fırsatı buldum.
+
+Framework içerisinde, geliştirme sürecini kolaylaştırmak adına birçok hazır kod bloğu ve yapı bulunuyor.
+Örneğin, bir grid (veri tablosu) eklemek istediğimde, grid'in veri kaynağını manuel olarak satır satır tanımlamama gerek kalmıyor.
+Grid bileşeninin "data" kısmında bulunan SQL alanına, çalıştırmak istediğim SQL sorgusunu yazmam yeterli oluyor. 
+	
+	Örnek olarak:
+
+		"SELECT * FROM Daily" 
+
+Bu sorguyu girdikten sonra, grid’in sütun yapısı, sorgudan dönen tablo yapısına göre otomatik olarak oluşturuluyor. 
+Yani sütunları tek tek elle tanımlamaya gerek kalmadan, veritabanındaki yapı dinamik olarak grid’e yansıtılmış oluyor.
+
+Kod kısmında ise, örneğin Init event’ine şu satırı yazarak sorgunun tetiklenmesini sağlıyorum:
+
+	SQL_DOQUERY();
+
+Bu fonksiyon sayesinde, grid’e yazdığım SQL ifadesi çalıştırılıyor ve sonuçlar doğrudan ilgili grid bileşenine yükleniyor. 
+Veriler satır satır grid içerisinde görüntüleniyor. 
+Bu yapı, DevExpress gibi gelişmiş arayüz kütüphanelerinde bulunan veri bağlama mantığıyla oldukça benzer şekilde çalışıyor. 
+Hem zaman kazandırıyor hem de görsel bileşenlerin veriye bağlanmasını oldukça pratik hâle getiriyor.

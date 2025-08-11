@@ -1,0 +1,30 @@
+Stajımın Beşinci gününde Projeme karar verdik. Restorant Rezervasyon Uygulaması.
+Uygulamanın api tarafı olacak eğer zaman kalırsa FrontEnd tarafı da geliştirilecek.
+
+Uygulama içerisinde kullanılacak teknolojiler
+	- Entitiy Framework Core : İlişkisel veritabanının C# Modelleri ile tanımlanması, yönetilmesi.
+	- IdentityUser 		    : Bu kütüphane ile authentication ve authorization işlemleri daha kolay ve yönetilebilir olması sağlanıyor.
+	- DTO/Mapping			
+	- Logging			    : Uygulama içerisindeki her adımın loglanması örneğin bir kullanıcı bir istek attı bunun kaydının tutulması.
+		-Burada istenen .net içerisinde gelen Logger Kütüphanesi yerine daha performanslı ve muadil olan kütüohane bulmak.
+		
+Sistem için gerekli oalcak olan modelleri tasarladım. Fluent API ile modellerin veritabanında nasıl ilişkilendiğini belirttim.
+	Add-Migration <migration_name> ile migrate işlemini gerçekleştirdim.
+	Veritabanı Tablolarım:
+		User 
+		Table
+		Review
+		Restaurant
+		Reservation
+		Payment
+		Notification
+		MenuItem
+		MenuCategory
+
+	Veritabanu diagramı sayfa 5 te
+
+Günüm genel olarak veritabanı kısında aldığım mantıksal hatalar ile geçti.
+	
+	
+	
+

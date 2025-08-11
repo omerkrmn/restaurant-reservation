@@ -1,0 +1,10 @@
+Bugün kullanıcı işlemlerini tamamladım. ASP.NET Core Identity ve JWT tabanlı kimlik doğrulama yapısını kurdum.
+IAuthenticationManager arayüzünü tanımlayıp AuthenticationManager sınıfında RegisterUser, ValidateUser, CreateToken ve RefreshToken metodlarını implemente ettim.
+Access token üretiminde SigningCredentials ve JwtSecurityToken kullandım; claim’lere Name, NameIdentifier ve kullanıcı rollerini ekledim.
+Refresh token’ı RandomNumberGenerator ile ürettim, kullanıcıya kaydedip opsiyonel olarak 7 gün süre verdim.
+Token yenileme sürecinde, mevcut access token’dan principal çıkararak kullanıcı doğrulaması yaptım; eşleşme ve süre kontrolü sonrası yeni token seti oluşturdum.
+Uygulamaya IdentityDbContext ekledim ve kimlikler için GUID kullandım.
+Rol bazlı yetkilendirme için RoleConfiguration ile seed data ekledim: User, Owner ve Admin rollerini önceden tanımlı GUID’lerle veritabanına ekledim.
+Kayıt olan kullanıcıyı başarı durumunda ilgili rollere atayacak şekilde akışı düzenledim.
+Böylece kullanıcı kayıt, giriş, access/refresh token üretimi ve rol yönetimi tamamlanarak kimlik doğrulama katmanı kullanıma hazır hale geldi.
+Stajımın 10.  gününü tamamladım.

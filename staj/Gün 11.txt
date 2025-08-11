@@ -1,0 +1,11 @@
+Bugün proje genelinde servis yönetimini tek bir noktadan sağlamak için ServiceManager ve IServiceManager yapılarını oluşturdum.
+ServiceManager içinde tüm servislerimi Lazy<T> yaklaşımı ile tanımladım. Böylece ilgili servis, yalnızca ihtiyaç duyulduğunda örneklendirilecek şekilde yapılandırıldı.
+
+Ayrıca UserManager<User> referansını ServiceManager üzerinden erişilebilir hale getirdim. 
+IServiceManager arayüzünde tüm servislerin property’lerini tanımladım ve ServiceManager’ın IoC (Dependency Injection) kaydını gerçekleştirdim. 
+Böylece herhangi bir yerde IServiceManager talep edildiğinde, ilgili request süresince tek bir ServiceManager örneği üzerinden tüm servisler yönetilebilecek hale geldi.
+
+Bunlara ek olarak tüm sınıflarım için temel CRUD operasyonlarında kullanılmak üzere Create DTO, Update DTO ve Response DTO’ları oluşturdum. 
+Bu sayede veri alışverişinde katmanlar arası bağımsızlık sağlanarak temiz bir veri aktarım modeli oluşturuldu.
+
+Günün sonunda servis katmanının merkezi yönetimi, IoC entegrasyonu ve DTO yapıları tamamlanarak proje mimarisi daha düzenli ve yönetilebilir bir hale getirildi.

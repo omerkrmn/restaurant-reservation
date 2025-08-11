@@ -1,0 +1,9 @@
+Bugün projede AutoMapper yapılandırmalarını tamamlayarak modellerim ile DTO’larımı eşleştirdim. AutoMapper, temel olarak bir nesnedeki verileri başka bir nesneye maplemek (eşlemek) için kullanılan bir kütüphanedir.
+Mapleme, iki farklı tipteki nesnelerin (örneğin Entity ve DTO) property’lerini otomatik olarak birbirine kopyalama işlemidir.
+ Böylece her dönüşüm için manuel atama yapmak yerine, tek bir profil tanımıyla veri dönüşümleri merkezi ve düzenli bir şekilde yapılır.
+
+Her model için Create DTO, Update DTO ve Response DTO tiplerini belirleyip AutoMapper profilleri ile gerekli eşleme kurallarını tanımladım.
+Bu sayede API katmanında veri girişi ve çıkışlarında, Entity ↔ DTO dönüşümleri otomatik hale geldi.
+
+Ayrıca bu yeni yapı doğrultusunda tüm manager sınıflarımı güncelledim.
+Artık manager metodları içerisinde veri dönüşümleri doğrudan AutoMapper üzerinden gerçekleşiyor, kod tekrarlarını azaltıyor.

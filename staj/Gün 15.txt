@@ -1,0 +1,16 @@
+Bugün, frontend tarafında Blazor WebAssembly ve JavaScript ile WebRTC entegrasyonunu geliştirdim.
+Hedefim, odada bulunan tüm kullanıcıların birbirleriyle medya akışı kurabileceği multi-peer yapıyı hayata geçirmekti.
+
+Teknik adımlar:
+
+	Medya erişimi: Kamera ve mikrofon akışını navigator.mediaDevices.getUserMedia ile alıp yerel video alanında gösterdim.
+	Peer bağlantı yönetimi: Odadaki her yeni kullanıcı için ayrı bir RTCPeerConnection nesnesi oluşturdum. Böylece her katılımcı, diğer tüm katılımcılarla doğrudan P2P bağlantı kurabiliyor.
+	Signaling entegrasyonu: SignalR üzerinden gelen ReceiveOffer, ReceiveAnswer ve ReceiveIceCandidate mesajlarını doğru peer connection’a yönlendirdim.
+
+Yeni katılımcı odaya girdiğinde mevcut tüm kullanıcılar ile SDP ve ICE alışverişi başlatacak şekilde kodu düzenledim.
+
+	Test: Aynı bilgisayarda birden fazla tarayıcı penceresi açarak, 3 kullanıcının aynı anda görüntü ve ses aktarabildiğini test ettim.
+
+Proje, günün sonunda temel çoklu katılımcı görüşme senaryosunu çalıştıracak şekilde tamamlandı. 
+Ancak proje oldukça yeni bittiği için detaylı sunum ve değerlendirme fırsatı olmadı.
+Bu nedenle çalışmayı pazartesi günü ekip lideri mühendise göstereceğim ve gerekli iyileştirmeleri geri bildirimlere göre yapacağım.

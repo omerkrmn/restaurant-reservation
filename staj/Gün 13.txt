@@ -1,0 +1,20 @@
+Bugün proje için controller yazımına başladım. Controller’lar, istemciden gelen HTTP isteklerini karşılayıp gerekli iş mantığını çalıştıran servis katmanına yönlendiren ve sonucu HTTP yanıtı olarak döndüren katmandır.
+
+RESTful mimari prensiplerine uygun olarak HTTP istek türlerini kullandım:
+
+GET → Sunucudan veri listeleme veya belirli bir kaydın detaylarını getirme
+
+POST → Yeni bir kaynak oluşturma
+
+PUT → Mevcut kaynağın tüm alanlarını güncelleme
+
+PATCH → Mevcut kaynağın sadece belirli alanlarını güncelleme
+
+DELETE → Bir kaynağı silme
+
+Controller metodlarımı yazarken, her endpoint’in doğru HTTP metoduna ve anlamlı bir route yapısına sahip olmasına dikkat ettim. 
+Ayrıca geriye dönen yanıtların HTTP durum kodlarının anlamlı olmasına özen gösterdim: 200 (Success), 201 (Created), 400 (Bad Request), 404 (Not Found), 500 (Internal Server Error) gibi.
+Tüm bu süreçte API uç noktalarını test etmek ve aynı zamanda dokümantasyonunu oluşturmak için Bruno aracını kullandım. 
+Yeni bir controller eklediğimde, ilgili endpoint’leri Bruno’ya tanıtarak hem doğru çalıştıklarını test ettim hem de proje dokümantasyonunu anlık olarak güncelledim.
+
+Günün sonunda controller’larımın yaklaşık yarısını tamamladım. Kalan kısımlara yarın devam ederek tüm endpoint’leri tamamlamayı ve proje genelinde uçtan uca API yapısını bitirmeyi hedefliyorum.

@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "restourant-reservation",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

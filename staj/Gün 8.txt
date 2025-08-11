@@ -1,0 +1,21 @@
+Bugün Service Layer (BLL) yazmaya başladım.
+Tüm modellerim için manager sınıfları oluşturdum. Örneğin MenuCategoryManager gibi; bu sınıf ile temel fonksiyonlar gerçekleşecek.
+
+IMenuCategoryManager:
+	Task<MenuCategory> GetMenuCategoryByIdAsync(Guid id);
+	Task AddMenuCategoryAsync(MenuCategory menuCategory);
+	Task UpdateMenuCategoryAsync(MenuCategory menuCategory);
+	Task DeleteMenuCategoryAsync(Guid id);
+	Task<IEnumerable<MenuCategory>> GetMenuCategoriesByRestaurantIdAsync(Guid restaurantId);
+Tüm manager’ların imzalarını (interface) oluşturdum. İlgili sınıfları implement edip metodlarını doldurdum.
+
+Örnek olarak:
+	public async Task UpdateMenuCategoryAsync(MenuCategory menuCategory)
+	{
+	    if (menuCategory == null)
+	        throw new ArgumentNullException(nameof(menuCategory), "Menu category cannot be null");
+	    _manager.MenuCategory.Update(menuCategory);
+	    await _manager.SaveAsync(); // Unit of Work
+	}
+	
+Bugün MenuCategoryManager, MenuItemManager ve ReservationManager sınıflarını bitirdim ve günü noktaladım.
